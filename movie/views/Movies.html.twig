@@ -1,0 +1,35 @@
+{# Movies.html.twig
+
+	This file provies the template to allow a user to search for the name of a movie.
+	It uses the form templage and then displays results of the search on the same page.
+	The results are displayed as a table with the movie title and year.
+#}
+
+{% include 'header.twig' %}
+<style>
+	table, tr, th, td { border: 1px solid black !important; }
+	td, th {padding: .4em;}
+		.id { text-align: center; }
+		.Title { text-align: center; }
+		.price { text-align: right; }
+</style>
+
+<h1>Movies</h1>
+<h2>The first 15 movies in the database, ordered by year descending.</h2>
+
+
+{% if results %}
+	<table>
+		<tr>
+		<th class="Title">Title</th>
+		<th class="Year">Year</th>
+		</tr>
+	{% for item in results %}
+		<td class="Title">{{item.Title}}</td>
+		<td class="Year">{{item.Year}}</td>
+		</tr>
+	{% endfor %}
+	</table>
+{% endif %}
+
+{% include 'footer.twig' %}

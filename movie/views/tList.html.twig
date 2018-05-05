@@ -1,0 +1,35 @@
+{# tList.html.twig
+
+#}
+
+{% include 'header.twig' %}
+<style>
+	table, tr, th, td { border: 1px solid black !important; }
+	td, th {padding: .4em;}
+		.id { text-align: center; }
+		.title { text-align: center; }
+		.price { text-align: right; }
+</style>
+
+<h1>Theaters</h1>
+<h2>The Theaters in the database.</h2>
+
+
+
+{% if results %}
+	<table>
+		<tr>
+		<th class="CompanyName">Company Name</th>
+		<th class="City">City</th>
+		<th class="PhoneNumber">Phone Number</th>
+		</tr>
+	{% for item in results %}
+		<td class="CompanyName">{{item.CompanyName}}</td>
+		<td class="City">{{item.City}}</td>
+		<td class="PhoneNumber">{{item.PhoneNumber}}</td>
+		</tr>
+	{% endfor %}
+	</table>
+{% endif %}
+
+{% include 'footer.twig' %}

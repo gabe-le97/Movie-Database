@@ -1,0 +1,34 @@
+{# actedIn.html.twig
+
+#}
+
+{% include 'header.twig' %}
+<style>
+	table, tr, th, td { border: 1px solid black !important; }
+	td, th {padding: .4em;}
+		.id { text-align: center; }
+		.Title { text-align: center; }
+		.price { text-align: right; }
+</style>
+
+<h1>Actors & the Movies they were in</h1>
+<h2>The actors and movies they have acted in the database.</h2>
+
+
+{% if results %}
+	<table>
+		<tr>
+		<th class="Names">Names</th>
+		<th class="Title">Title</th>
+		<th class="Year">Year</th>
+		</tr>
+	{% for item in results %}
+		<td class="Names">{{item.Names}}</td>
+		<td class="Title">{{item.Title}}</td>
+		<td class="Year">{{item.Year}}</td>
+		</tr>
+	{% endfor %}
+	</table>
+{% endif %}
+
+{% include 'footer.twig' %}

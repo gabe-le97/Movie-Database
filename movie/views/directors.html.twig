@@ -1,0 +1,32 @@
+{# directors.html.twig
+
+#}
+
+{% include 'header.twig' %}
+<style>
+	table, tr, th, td { border: 1px solid black !important; }
+	td, th {padding: .4em;}
+		.id { text-align: center; }
+		.Names { text-align: center; }
+		.Genre { text-align: right; }
+</style>
+
+<h1>Directors</h1>
+<h2>The first 15 directors in the database, ordered by name descending.</h2>
+
+
+{% if results %}
+	<table>
+		<tr>
+		<th class="Names">Names</th>
+		<th class="Genre">Genre</th>
+		</tr>
+	{% for item in results %}
+		<td class="Names">{{item.Names}}</td>
+		<td class="Genre">{{item.Genre}}</td>
+		</tr>
+	{% endfor %}
+	</table>
+{% endif %}
+
+{% include 'footer.twig' %}

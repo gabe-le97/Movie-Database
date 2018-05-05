@@ -1,0 +1,33 @@
+{# aNum.html.twig
+
+#}
+
+{% include 'header.twig' %}
+<style>
+	table, tr, th, td { border: 1px solid black !important; }
+	td, th {padding: .4em;}
+		.id { text-align: center; }
+		.Title { text-align: center; }
+		.price { text-align: right; }
+</style>
+
+<h1>Genre of Actors</h1>
+<h2>The number of actors in each genre in the database.</h2>
+
+
+
+{% if results %}
+	<table>
+		<tr>
+		<th class="Genre">Genre</th>
+		<th class="num">No. Actors</th>
+		</tr>
+	{% for item in results %}
+		<td class="Genre">{{item.Genre}}</td>
+		<td class="num">{{item.Actors}}</td>
+		</tr>
+	{% endfor %}
+	</table>
+{% endif %}
+
+{% include 'footer.twig' %}

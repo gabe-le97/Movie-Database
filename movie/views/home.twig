@@ -1,0 +1,35 @@
+{# home.twig
+
+	This file creates the template for the Home page of the movie application.
+	It includes the header.twig.
+	It determines if a customer is logged in and displays the appropriate links on the page.
+#}
+
+{% include 'header.twig' with { 'pageTitle' : pageTitle}  %}
+
+<br><h3>
+  
+{% if user != '' %}
+	<a href="/movie/index.php/Movies">First 15 Movies</a><br>
+	<p style="font-size:1vw">Description: List all movies in the database.<br>
+	Result: List of the first 15 movies in the database (title, year), ordered by year descending.</p>
+	<a href='/movie/index.php/orders'>First 15 Directors</a><br>
+	<p style="font-size:1vw">Description: List all directors in the database.<br>
+	Result: List of the first 15 directors in the database  (name, genre), ordered by name descending.</p>
+	<a href='/movie/index.php/anum'>Number of Actors in each movie Genre</a><br>
+	<p style="font-size:1vw">Description: Finds the number of actors that are listed in each genre.<br>
+	Result: List of the number of actors in the database (genre, No. Actors) that are listed in each genre.</p>
+	<a href='/movie/index.php/tList'>Find all Theaters in the Database</a><br>
+	<p style="font-size:1vw">Description: Find all theaters in the database.<br>
+	Result: List of all theaters in the database (company name, city, and phone number).</p>
+	<a href='/movie/index.php/actedIn'>All Actors and the Movies they were in</a><br>
+	<p style="font-size:1vw">Description: Find all actors and the movies that they acted in.<br>
+	Result: List of top 15 actors and the movies that they acted in (name, year), ordered by year descending </p>
+	<a href='/movie/index.php/topTen'>Top Ten Movies in the Database</a><br>
+	<p style="font-size:1vw">Description: Find the top ten movies determined by votes.<br>
+	Result: A list of the top ten movies (title, votes) as determined by votes.</p>
+	<a href="/movie/index.php/logout">Logout {{user}}</a><br>
+{% else %}
+	<a href="/movie/index.php/register">Register</a><br>
+	<a href="/movie/index.php/login">Login</a><br>
+{% endif %}	<h3>
